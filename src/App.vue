@@ -1,85 +1,89 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div id="app">
+    <h1>Random Comment Generator</h1>
 
-    <div class="wrapper">
-      <HelloWorld msg="Capython!" />
+    <!-- Comment input form -->
+    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
+    <br />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <!-- Math question input -->
+    <div>
+      <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
+      <input v-model="userAnswer" type="number" id="mathQuestion" />
     </div>
-  </header>
+    <br />
+    
+    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment</button>
 
-  <RouterView />
+    <h2>Random Comment:</h2>
+    <p v-if="randomComment">{{ randomComment }}</p>
+    <p v-else>No comment yet.</p>
+  </div>
+
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script>
+import { RouterLink, RouterView } from 'vue-router';
+import axios from 'axios';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  data() {
+    return {
+      userComment: '',
+      userAnswer: '',
+      randomComment: null,
+      isHuman: false,
+      mathQuestion: {
+        num1: Math.floor(Math.random() * 10), // Random number between 0 and 9
+        num2: Math.floor(Math.random() * 10), // Random number between 0 and 9
+        correctAnswer: 0
+      }
+    };
+  },
+  methods: {
+    // Check if the user answered the math question correctly
+    checkMathQuestion() {
+      this.mathQuestion.correctAnswer = this.mathQuestion.num1 + this.mathQuestion.num2;
+      if (parseInt(this.userAnswer) === this.mathQuestion.correctAnswer) {
+        this.isHuman = true;
+      } else {
+        this.isHuman = false;
+      }
+    },
+    async submitComment() {
+      if (this.isHuman && this.userComment.trim()) {
+        try {
+          // Send the comment and answer to the backend
+          const res = await axios.post('http://localhost:3000/add-comment', {
+            comment: this.userComment,
+            mathAnswer: this.userAnswer,  // Send the user's math answer
+          });
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+          this.userComment = ''; // Clear input after submission
+          this.fetchRandomComment(); // Fetch a new random comment
+        } catch (error) {
+          console.error('Error submitting the comment:', error);
+        }
+      }
+    },
+    async fetchRandomComment() {
+      try {
+        const response = await axios.get('http://localhost:3000/random-comment');
+        this.randomComment = response.data.comment;
+      } catch (error) {
+        console.error('Error fetching random comment:', error);
+      }
+    }
+  },
+  watch: {
+    // Check the math question when the user input changes
+    userAnswer(newAnswer) {
+      this.checkMathQuestion();
+    }
+  },
+  mounted() {
+    this.fetchRandomComment(); // Fetch random comment on page load
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+};
+</script>
