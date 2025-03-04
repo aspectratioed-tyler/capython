@@ -7,7 +7,7 @@
     <br />
 
     <!-- Math question input -->
-    <div>
+    <div v-if="mathQuestion">
       <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
       <input v-model="userAnswer" type="number" id="mathQuestion" />
     </div>
@@ -19,8 +19,6 @@
     <p v-if="randomComment">{{ randomComment }}</p>
     <p v-else>No comment yet.</p>
   </div>
-
-
 </template>
 
 <script>
@@ -34,45 +32,60 @@ export default {
       userAnswer: '',
       randomComment: null,
       isHuman: false,
-      mathQuestion: {
-        num1: Math.floor(Math.random() * 10), // Random number between 0 and 9
-        num2: Math.floor(Math.random() * 10), // Random number between 0 and 9
-        correctAnswer: 0
-      }
+      mathQuestion: null // Initially null, will be populated by server
     };
   },
   methods: {
-    // Check if the user answered the math question correctly
-    checkMathQuestion() {
-      this.mathQuestion.correctAnswer = this.mathQuestion.num1 + this.mathQuestion.num2;
-      if (parseInt(this.userAnswer) === this.mathQuestion.correctAnswer) {
-        this.isHuman = true;
-      } else {
-        this.isHuman = false;
-      }
-    },
-    async submitComment() {
-      if (this.isHuman && this.userComment.trim()) {
-        try {
-          // Send the comment and answer to the backend
-          const res = await axios.post('http://localhost:3000/add-comment', {
-            comment: this.userComment,
-            mathAnswer: this.userAnswer,  // Send the user's math answer
-          });
+  checkMathQuestion() {
+    if (this.mathQuestion) {
+      const correctAnswer = this.mathQuestion.num1 + this.mathQuestion.num2;
+      this.isHuman = parseInt(this.userAnswer) === correctAnswer;
 
-          this.userComment = ''; // Clear input after submission
-          this.fetchRandomComment(); // Fetch a new random comment
-        } catch (error) {
-          console.error('Error submitting the comment:', error);
-        }
-      }
-    },
+      // Debugging: Log the correct answer and user's answer
+      console.log('Correct answer:', correctAnswer, 'User answer:', this.userAnswer);
+    }
+  },
+  // Rest of the methods...
+  async submitComment() {
+  if (this.isHuman && this.userComment.trim()) {
+    try {
+      // Debugging: Log the values being sent
+      console.log('Submitting comment with:', {
+        comment: this.userComment,
+        mathAnswer: this.userAnswer,
+        mathQuestion: this.mathQuestion,
+      });
+
+      // Send the comment, answer, and math question to the backend
+      const res = await axios.post('http://localhost:3000/add-comment', {
+        comment: this.userComment,
+        mathAnswer: this.userAnswer,
+        mathQuestion: this.mathQuestion, // Include the math question
+      });
+
+      this.userComment = ''; // Clear input after submission
+      this.userAnswer = ''; // Clear the answer input
+      this.fetchRandomComment(); // Fetch a new random comment
+      this.fetchMathQuestion(); // Fetch a new math question
+    } catch (error) {
+      console.error('Error submitting the comment:', error);
+    }
+  }
+},
     async fetchRandomComment() {
       try {
         const response = await axios.get('http://localhost:3000/random-comment');
         this.randomComment = response.data.comment;
       } catch (error) {
         console.error('Error fetching random comment:', error);
+      }
+    },
+    async fetchMathQuestion() {
+      try {
+        const response = await axios.get('http://localhost:3000/math-question');
+        this.mathQuestion = response.data; // Set the math question from server
+      } catch (error) {
+        console.error('Error fetching math question:', error);
       }
     }
   },
@@ -84,6 +97,7 @@ export default {
   },
   mounted() {
     this.fetchRandomComment(); // Fetch random comment on page load
+    this.fetchMathQuestion(); // Fetch math question from backend
   }
 };
 </script>
