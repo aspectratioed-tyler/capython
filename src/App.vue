@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <h1>Random Comment Generator</h1>
-
-    <!-- Comment input form -->
-    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
-    <br />
-
     <!-- Math question input -->
     <div v-if="mathQuestion">
       <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
@@ -19,6 +14,11 @@
     <p v-if="randomComment">{{ randomComment }}</p>
     <p v-else>No comment yet.</p>
   </div>
+    <!-- Comment input form -->
+    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
+    <br />
+
+
 </template>
 
 <script>
@@ -101,3 +101,6 @@ export default {
   }
 };
 </script>
+
+<style>
+</style>
