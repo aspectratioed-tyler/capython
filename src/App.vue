@@ -12,8 +12,8 @@
       <input v-model="userAnswer" type="number" id="mathQuestion" />
     </div>
     <br />
-    
-    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment</button>
+
+    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment hahaha</button>
 
     <h2>Random Comment:</h2>
     <p v-if="randomComment">{{ randomComment }}</p>
