@@ -1,4 +1,43 @@
 <template>
+  <!-- First section(header)-->
+
+  <div class="section1">
+
+    <h1>Welcome to</h1>
+    <h2></h2>
+    <img src="" alt="">
+    <img src="" alt="">
+    <button class="scrolldown"></button>
+
+
+  </div>
+
+  <div class="section2" >
+
+
+
+  </div>
+
+  <div class="section3">
+
+
+
+  </div>
+
+  <div class="section4">
+
+    <button><a href=""></a>Learn more...</button>
+
+
+  </div>
+
+
+
+
+
+
+
+
   <div id="app">
     <h1>Random Comment Generator</h1>
     <!-- Math question input -->
@@ -17,6 +56,11 @@
     <!-- Comment input form -->
     <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
     <br />
+
+
+
+
+
 
 
 </template>
@@ -103,4 +147,6 @@ export default {
 </script>
 
 <style>
+
+
 </style>
