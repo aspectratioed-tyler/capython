@@ -5,12 +5,13 @@
 
     <h1>Welcome to</h1>
     <h2 id="shyneheader">shyne</h2>
-    <img src="" alt="">
+    <img src="./assets/shynelogo.png" alt="">
     <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
 
   </div>
 
   <div class="section2" >
+
 
 
 
@@ -24,17 +25,31 @@
   </div>
 
   <div class="section4">
+    <div class="left">
+      <div class="centered">   <p>Mental health awareness is vital to reducing stigma and supporting those in need. Mental health issues affect everyone, and recognizing them as medical conditions helps break down barriers. Open conversations and self-care practices, like exercise and stress management, are key in maintaining well-being. By raising awareness, we create a more supportive and understanding environment for all.</p>
+    <button id="mentalbutton"><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources"></a>Learn more...</button>
+    </div>
 
-    <button><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources"></a>Learn more...</button>
+    </div>
+
+  <div class="right">
+    <div class="centered"><img src="" alt="sungif"></div>
 
 
   </div>
-  <div>
-    <footer></footer>
+
+
+  </div>
+
+  <div class="footerbottom">
+    <footer>
+      <p id="copywrite-text">© 2025 Shyne All Rights Reserved.</p>
     <div class="socialmedias">
-    <img src="" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
-    <img src="" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
+    <img src="./assets/tiktok.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
+    <img src="./assets/shyneinstagram.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
     </div>
+  </footer>
+
 
   </div>
 
