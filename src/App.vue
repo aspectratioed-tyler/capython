@@ -147,6 +147,14 @@ export default {
 </script>
 
 <style>
+:root {
+    --white:#F0F0F0;
+    --green:#CFDD2E;
+    --pink:#FF98C7;
+    --cream:#F7F4ED;
+    --orange:#F98444;
+    --blue:#6CCCEF;
+}
 
 
 </style>
