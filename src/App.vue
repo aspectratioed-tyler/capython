@@ -13,6 +13,25 @@
   <div class="section2" >
 
 
+  <div id="app">
+    <h1>Random Comment Generator</h1>
+    <!-- Math question input -->
+    <div v-if="mathQuestion">
+      <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
+      <input v-model="userAnswer" type="number" id="mathQuestion" />
+    </div>
+    <br />
+
+    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment hahaha</button>
+
+    <h2>Random Comment:</h2>
+    <p v-if="randomComment">{{ randomComment }}</p>
+    <p v-else>No comment yet.</p>
+  </div>
+    <!-- Comment input form -->
+    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
+    <br />
+
 
 
 
@@ -52,34 +71,6 @@
 
 
   </div>
-
-
-
-
-
-
-
-
-  <div id="app">
-    <h1>Random Comment Generator</h1>
-    <!-- Math question input -->
-    <div v-if="mathQuestion">
-      <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
-      <input v-model="userAnswer" type="number" id="mathQuestion" />
-    </div>
-    <br />
-
-    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment hahaha</button>
-
-    <h2>Random Comment:</h2>
-    <p v-if="randomComment">{{ randomComment }}</p>
-    <p v-else>No comment yet.</p>
-  </div>
-    <!-- Comment input form -->
-    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
-    <br />
-
-
 
 
 
