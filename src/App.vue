@@ -47,7 +47,7 @@
   <div class="section4">
     <div class="split left">
       <div class="centered">   <p>Mental health awareness is vital to reducing stigma and supporting those in need. Mental health issues affect everyone, and recognizing them as medical conditions helps break down barriers. Open conversations and self-care practices, like exercise and stress management, are key in maintaining well-being. By raising awareness, we create a more supportive and understanding environment for all.</p>
-    <button id="mentalbutton"><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources"></a>Learn more...</button>
+    <button id="mentalbutton"><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources">Learn more...</a></button>
     </div>
 
     </div>
@@ -188,13 +188,30 @@ export default {
   height: 100vh;
 
 }
+.section1 h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  color: var(--white);
+  text-align: center;
+  padding-top: 100px;
+}
+
 #shyneheader {
   font-family: 'Dillan';
   text-align: center;
+  font-size: 300px;
+  color: var(--cream);
+  vertical-align: middle;
+  margin: 0 auto; /* Center horizontally */
+  display: inline-block; /* Align beside the logo */
 }
+
 #shynelogo {
   width: 100px;
   height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto; /* Center horizontally */
 }
 
 #arrowdown {
@@ -236,6 +253,14 @@ export default {
 .section4 {
   position: relative;
   height: 100vh; /* Set height to 100vh to ensure it takes up the full viewport height */
+
+}
+
+.section4 p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  padding: 20px;
 }
 
 .section4 .split {
@@ -245,6 +270,18 @@ export default {
   z-index: 1;
   top: 0;
   overflow-x: hidden;
+}
+
+#mentalbutton {
+  background-color: var(--orange);
+  height: 50px;
+  width: 150px;
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 20px;
+}
+#mentalbutton a {
+  text-decoration: none;
 }
 
 /* Control the left side */
