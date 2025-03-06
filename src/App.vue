@@ -11,39 +11,49 @@
 
   </div>
 
+<!-- Second section-->
   <div class="section2" >
+    <div id="app">
+    <div class="app-box">
+    <h1>Message of the Day</h1>
+    <p id="randomtext" v-if="randomComment">{{ randomComment }}</p>
+    <p v-else>No comment yet.</p>
 
+    </div>
+
+
+    </div>
+</div>
+
+<!-- Third section-->
+  <div class="section3">
 
   <div id="app">
-    <h1>Random Comment Generator</h1>
+    <div class="message-box">
+    <h1>Write a comment</h1>
     <!-- Math question input -->
     <div v-if="mathQuestion">
       <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
       <input v-model="userAnswer" type="number" id="mathQuestion" />
     </div>
     <br />
-
-    <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit Comment hahaha</button>
-
-    <h2>Random Comment:</h2>
-    <p v-if="randomComment">{{ randomComment }}</p>
-    <p v-else>No comment yet.</p>
-  </div>
     <!-- Comment input form -->
     <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
     <br />
 
-
-
-
-  </div>
-
-  <div class="section3">
-
+ <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
+</div>
 
 
   </div>
 
+
+  </div>
+
+
+
+
+<!-- Fourth section-->
   <div class="section4">
     <div class="split left">
       <div class="centered">   <p>Mental health awareness is vital to reducing stigma and supporting those in need. Mental health issues affect everyone, and recognizing them as medical conditions helps break down barriers. Open conversations and self-care practices, like exercise and stress management, are key in maintaining well-being. By raising awareness, we create a more supportive and understanding environment for all.</p>
@@ -55,11 +65,11 @@
   <div class=" split right">
     <div class="centered"><img id="sunnywalk" src="./assets/Sun_Color_Animation_ .gif" alt=""></div>
 
-
+  </div>
   </div>
 
 
-  </div>
+  <!-- Footer section-->
 
   <div class="footerbottom">
     <footer>
@@ -240,6 +250,36 @@ export default {
   height: 100vh;
 }
 
+.section2 h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--blue);
+  text-align: center;
+  padding-top: 100px;
+}
+
+#randomtext {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--orange);
+  text-align: center;
+  padding: 20px;
+}
+.app-box {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 800px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+        }
+
+
 /* section 3 */
 
 .section3 {
@@ -247,6 +287,32 @@ export default {
   height: 100vh;
 
 }
+
+.section3 h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--pink);
+  text-align: center;
+  padding-top: 100px;
+}
+
+#mathQuestion {
+  border-radius: 50px;
+}
+
+.message-box {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 800px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+        }
+
 
 /* section 4 */
 /* Split the screen in half */
@@ -338,4 +404,10 @@ width: 600px;
   height: 25px;
 }
 
+#copywrite-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: var(--white);
+  text-align: center;
+}
 </style>
