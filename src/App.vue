@@ -6,9 +6,7 @@
     <h1>Welcome to</h1>
     <h2 id="shyneheader">shyne</h2>
     <img src="" alt="">
-    <img src="" alt="">
-    <button class="scrolldown"></button>
-
+    <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
 
   </div>
 
@@ -165,6 +163,14 @@ export default {
     --blue:#6CCCEF;
 }
 
+.section1 {
+  background-color: var(--green);
+}
+
+.section3 {
+  background-color: var(--cream);
+
+}
 
 
 
