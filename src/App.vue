@@ -5,7 +5,7 @@
   <div class="section1">
 
     <h1>Welcome to</h1>
-    <h2 id="shyneheader">shyne</h2>
+    <h2 id="shyneheader">Shyne</h2>
     <img id="shynelogo" src="./assets/shynelogo.png" alt="">
     <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
 
@@ -163,12 +163,13 @@ export default {
 
 <style>
 /* fonts */
+@font-face {
+  font-family: 'Dillan';
+  src: url('./assets/MADE Dillan PERSONAL USE.otf');
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-        @font-face {
-            font-family: 'Dillon';
-            src: url('Dillon.woff2') format('woff2');
-        }
+
 /* colours */
 :root {
     --white:#ffffff;
@@ -187,6 +188,10 @@ export default {
   height: 100vh;
 
 }
+#shyneheader {
+  font-family: 'Dillan';
+  text-align: center;
+}
 #shynelogo {
   width: 100px;
   height: auto;
@@ -195,7 +200,19 @@ export default {
 #arrowdown {
   width: 50px;
   height: auto;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+#arrowdown:hover {
+  transform: translateX(-50%) scale(1.2);
+  transition: transform 0.3s ease-in-out;
+  border-radius: 50%;
+  background-color: var(--orange);
+}
+
+
 
 /* section 2 */
 
