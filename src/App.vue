@@ -1,4 +1,5 @@
-<template>
+<template >
+<div class="entire">
   <!-- First section(header)-->
 
   <div class="section1">
@@ -64,8 +65,8 @@
     <footer>
       <p id="copywrite-text">© 2025 Shyne All Rights Reserved.</p>
     <div class="socialmedias">
-    <img src="./assets/tiktok.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
-    <img src="./assets/shyneinstagram.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
+    <img id="tiktokimg" src="./assets/tiktok.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
+    <img id="igimg" src="./assets/shyneinstagram.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
     </div>
   </footer>
 
@@ -75,6 +76,7 @@
 
 
 
+</div>
 
 </template>
 
@@ -160,6 +162,14 @@ export default {
 </script>
 
 <style>
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+        @font-face {
+            font-family: 'Dillon';
+            src: url('Dillon.woff2') format('woff2');
+        }
+/* colours */
 :root {
     --white:#F0F0F0;
     --green:#CFDD2E;
@@ -169,15 +179,36 @@ export default {
     --blue:#6CCCEF;
 }
 
+/* section 1 */
+
 .section1 {
   background-color: var(--green);
 }
+
+/* section 2 */
+
+.section2 {
+  background-image: url("./assets/backgroundsect2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* section 3 */
 
 .section3 {
   background-color: var(--cream);
 
 }
 
+/* section 4 */
 
+
+
+
+/* Footer */
+
+.footerbottom{
+  background-color: var(--pink);
+}
 
 </style>
