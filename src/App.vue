@@ -6,7 +6,7 @@
 
     <h1>Welcome to</h1>
     <h2 id="shyneheader">shyne</h2>
-    <img src="./assets/shynelogo.png" alt="">
+    <img id="shynelogo" src="./assets/shynelogo.png" alt="">
     <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
 
   </div>
@@ -45,15 +45,15 @@
   </div>
 
   <div class="section4">
-    <div class="left">
+    <div class="split left">
       <div class="centered">   <p>Mental health awareness is vital to reducing stigma and supporting those in need. Mental health issues affect everyone, and recognizing them as medical conditions helps break down barriers. Open conversations and self-care practices, like exercise and stress management, are key in maintaining well-being. By raising awareness, we create a more supportive and understanding environment for all.</p>
     <button id="mentalbutton"><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources"></a>Learn more...</button>
     </div>
 
     </div>
 
-  <div class="right">
-    <div class="centered"><img src="" alt="sungif"></div>
+  <div class=" split right">
+    <div class="centered"><img id="sunnywalk" src="./assets/Sun_Color_Animation_ .gif" alt=""></div>
 
 
   </div>
@@ -171,7 +171,7 @@ export default {
         }
 /* colours */
 :root {
-    --white:#F0F0F0;
+    --white:#ffffff;
     --green:#CFDD2E;
     --pink:#FF98C7;
     --cream:#F7F4ED;
@@ -183,6 +183,10 @@ export default {
 
 .section1 {
   background-color: var(--green);
+}
+.img .shynelogo {
+  width: 100px;
+  height: 100px;
 }
 
 /* section 2 */
@@ -201,7 +205,53 @@ export default {
 }
 
 /* section 4 */
+/* Split the screen in half */
+.section4 {
+  position: relative;
+  height: 100vh; /* Set height to 100vh to ensure it takes up the full viewport height */
+}
 
+.section4 .split {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: var(--blue);
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: var(--white);
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* gif */
+#sunnywalk{
+height: auto;
+width: 600px;
+}
 
 
 
@@ -209,6 +259,19 @@ export default {
 
 .footerbottom{
   background-color: var(--pink);
+}
+.socialmedias {
+  justify-content: flex-end;
+}
+
+#tiktokimg {
+  width: 25px;
+  height: 25px;
+}
+
+#igimg {
+  width: 25px;
+  height: 25px;
 }
 
 </style>
