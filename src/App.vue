@@ -183,10 +183,18 @@ export default {
 
 .section1 {
   background-color: var(--green);
+  background-size: 100%;
+  height: 100vh;
+
 }
-.img .shynelogo {
+#shynelogo {
   width: 100px;
-  height: 100px;
+  height: auto;
+}
+
+#arrowdown {
+  width: 50px;
+  height: auto;
 }
 
 /* section 2 */
@@ -195,12 +203,14 @@ export default {
   background-image: url("./assets/backgroundsect2.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 
 /* section 3 */
 
 .section3 {
   background-color: var(--cream);
+  height: 100vh;
 
 }
 
