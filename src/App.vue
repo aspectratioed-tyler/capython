@@ -48,7 +48,7 @@
     <textarea id="userComment" v-model="userComment" placeholder="Right here..." rows="4" cols="50"></textarea>
     <br />
 
-    <div class="popup" onclick="myFunction()"> <button id="submitnow" @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
+    <div class="popup"> <button id="submitnow" @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
   <span class="popuptext" id="myPopup">You’ve helped a soul today</span>
 </div>
 
@@ -152,6 +152,7 @@ export default {
       this.userAnswer = ''; // Clear the answer input
       this.fetchRandomComment(); // Fetch a new random comment
       this.fetchMathQuestion(); // Fetch a new math question
+      myFunction(); //popup function
     } catch (error) {
       console.error('Error submitting the comment:', error);
     }
@@ -191,6 +192,7 @@ export default {
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
+  console.log("this should pop up");
 }
 
 document.addEventListener("scroll", function () {
@@ -446,6 +448,7 @@ document.addEventListener("scroll", function () {
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
+  visibility: visible;
 }
 
 .popup .show {
