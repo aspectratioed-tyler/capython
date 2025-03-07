@@ -374,48 +374,54 @@ document.addEventListener("scroll", function () {
 
 /* section 3 */
 
+/* Section Styling with Grid */
 .section3 {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-rows: auto auto auto auto; /* Rows for heading, content, form, and button */
+  align-items: center; /* Center items vertically */
+  justify-items: center; /* Center items horizontally */
+  text-align: center; /* Center text content */
   background-color: var(--cream);
   height: 100vh;
-
+  padding: 50px;
 }
 
+/* Heading Styling */
 .section3 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 50px;
   color: var(--pink);
-  text-align: center;
-  padding-top: 100px;
 }
 
-#mathQuestion {
+/* Input Styling */
+#mathQuestion, #userComment {
   border-radius: 15px;
+  padding: 10px;
+  width: 60%;
+  font-size: 1rem;
+  text-align: center;
 }
 
+/* Message Box Styling */
 .message-box {
-            background-color: #ffffff;
-            padding: 20px;
-            width: 800px;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 50px;
-        }
+  background-color: #ffffff;
+  padding: 20px;
+  width: 800px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Popup Styling */
 .popup {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
-/* The actual popup */
 .popup .popuptext {
   visibility: hidden;
   width: 160px;
@@ -428,10 +434,9 @@ document.addEventListener("scroll", function () {
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  margin-left: -80px;
+  transform: translateX(-50%);
 }
 
-/* Popup arrow */
 .popup .popuptext::after {
   content: "";
   position: absolute;
@@ -443,24 +448,29 @@ document.addEventListener("scroll", function () {
   border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
 }
 
 @keyframes fadeIn {
   from {opacity: 0;}
-  to {opacity:1 ;}
+  to {opacity: 1;}
 }
 
+/* Ensure label and input are stacked */
+#mathQuestion {
+  display: block; /* Makes the input field appear below the label */
+  margin-top: 10px; /* Adds spacing between the equation and input box */
+  width: 100%; /* Ensures consistent width */
+  text-align: center; /* Centers text inside input */
+}
+p{
+  font-family: 'Poppins', sans-serif;
+
+}
+
+/* Button Styling */
 #submitnow {
   background-color: var(--pink);
   height: 50px;
@@ -468,22 +478,21 @@ document.addEventListener("scroll", function () {
   border-radius: 50px;
   color: var(--white);
   font-size: 20px;
-  border: none; /* Remove the border */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 #submitnow:hover {
   background-color: var(--green);
 }
 
-
-#userComment {
-  border-radius: 15px;
-}
-
+/* Image Styling */
 #sunnymail {
-  height: auto;
   width: 300px;
-  align-items: right;
-
+  height: auto;
 }
 
 
