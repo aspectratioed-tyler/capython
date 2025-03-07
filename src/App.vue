@@ -5,9 +5,10 @@
   <div class="section1">
 
     <h1>Welcome to</h1>
-    <h2 id="shyneheader">Shyne</h2>
+    <div id="shynecontainer">    <h2 id="shyneheader">Shyne</h2>
     <img id="shynelogo" src="./assets/shynelogo.png" alt="">
-    <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
+    <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a></div>
+
 
   </div>
 
@@ -224,22 +225,24 @@ function myFunction() {
   padding-top: 100px;
 }
 
+#shynecontainer {
+  display: flex;
+  align-items: center; /* Align logo and text vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center;
+  width: 100%; /* Ensure full width */
+}
+
 #shyneheader {
   font-family: 'Dillan';
-  text-align: center;
   font-size: 300px;
   color: var(--cream);
-  vertical-align: middle;
-  margin: 0 auto; /* Center horizontally */
-  display: inline-block; /* Align beside the logo */
+  margin: 0;
 }
 
 #shynelogo {
   width: 100px;
   height: auto;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 auto; /* Center horizontally */
 }
 
 #arrowdown {
