@@ -2,21 +2,23 @@
 <div class="entire">
   <!-- First section(header)-->
 
-  <div class="section1">
+  <div id="section1" class="section1">
 
     <h1>Welcome to</h1>
-    <div id="shynecontainer">    <h2 id="shyneheader">Shyne</h2>
-    <img id="shynelogo" src="./assets/shynelogo.png" alt="">
-    <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a></div>
+    <div id="shynecontainer">
+    <h2 id="shyneheader">Shyne</h2>
+    <img id="shynelogo" src="./assets/logorefined.webp" alt="">
+    <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
+    </div>
 
 
   </div>
 
 <!-- Second section-->
-  <div class="section2" >
+  <div id="section2" class="section2" >
     <div id="app">
     <div class="app-box">
-    <h1>Message of the Day</h1>
+    <h1>"Message of the Day"</h1>
     <p id="randomtext" v-if="randomComment">{{ randomComment }}</p>
     <p v-else>No comment yet.</p>
 
@@ -25,17 +27,17 @@
 
     </div>
 
-    <button><a href="#section3"></a>Click to write your own message!</button>
+    <button id="writenow"><a href="#section3">Click to write your own message!</a></button>
 
-    <img src="./assets/girlsmillling.svg" alt="">
+    <img id="girlsmile" src="./assets/girlsmillling.svg" alt="">
 </div>
 
 <!-- Third section-->
-  <div class="section3">
+  <div id="section3" class="section3">
 
   <div id="app">
     <div class="message-box">
-    <h1>Write a comment</h1>
+    <h1>Write a message!</h1>
     <!-- Math question input -->
     <div v-if="mathQuestion">
       <label for="mathQuestion">What is {{ mathQuestion.num1 }} + {{ mathQuestion.num2 }}?</label>
@@ -43,10 +45,10 @@
     </div>
     <br />
     <!-- Comment input form -->
-    <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
+    <textarea id="userComment" v-model="userComment" placeholder="Right here..." rows="4" cols="50"></textarea>
     <br />
 
-    <div class="popup" onclick="myFunction()"> <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
+    <div class="popup" onclick="myFunction()"> <button id="submitnow" @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
   <span class="popuptext" id="myPopup">You’ve helped a soul today</span>
 </div>
 
@@ -55,7 +57,7 @@
 
   </div>
 
-  <img src="./assets/sunnymail.png" alt="">
+  <img id="sunnymail" src="./assets/sunnymail.png" alt="">
 
 
   </div>
@@ -64,7 +66,7 @@
 
 
 <!-- Fourth section-->
-  <div class="section4">
+  <div id="section4" class="section4">
     <div class="split left">
       <div class="centered">   <p>Mental health awareness is vital to reducing stigma and supporting those in need. Mental health issues affect everyone, and recognizing them as medical conditions helps break down barriers. Open conversations and self-care practices, like exercise and stress management, are key in maintaining well-being. By raising awareness, we create a more supportive and understanding environment for all.</p>
     <button id="mentalbutton"><a href="https://www.quebec.ca/en/health/mental-health/finding-help-and-support-for-mental-health/finding-mental-health-help-and-support-resources/mental-health-help-and-support-resources">Learn more...</a></button>
@@ -81,13 +83,16 @@
 
   <!-- Footer section-->
 
-  <div class="footerbottom">
+  <div id="footerbottom" class="footerbottom">
     <footer>
     <p id="copywrite-text">© 2025 Shyne All Rights Reserved.</p>
     <div class="socialmedias">
 
-    <img id="tiktokimg" src="./assets/tiktok.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
-    <img id="igimg" src="./assets/shyneinstagram.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
+      <a href="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=0-1&t=wWriA2baQSqVGdP8-1"><img id="tiktokimg" src="./assets/tiktok.svg" alt=""></a>
+
+      <a href="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=0-1&t=wWriA2baQSqVGdP8-1"><img id="igimg" src="./assets/shyneinstagram.svg" alt=""></a>
+
+
     </div>
   </footer>
 
@@ -188,6 +193,15 @@ function myFunction() {
   popup.classList.toggle("show");
 }
 
+document.addEventListener("scroll", function () {
+    let section = document.querySelector("#section2");
+    let position = section.getBoundingClientRect().top;
+
+    if (position < window.innerHeight * 0.75) {
+        section.classList.add("visible");
+    }
+});
+
 </script>
 
 <style>
@@ -241,7 +255,7 @@ function myFunction() {
 }
 
 #shynelogo {
-  width: 100px;
+  width: 150px;
   height: auto;
 }
 
@@ -264,41 +278,98 @@ function myFunction() {
 
 /* section 2 */
 
+
+/* Section Styling with Grid */
+/* Section Styling with Grid */
 .section2 {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-rows: auto auto auto; /* Rows for image, content, and button */
+  align-items: center; /* Center items vertically */
+  justify-items: center; /* Center items horizontally */
+  text-align: center; /* Center text content */
   background-image: url("./assets/backgroundsect2.webp");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  padding: 50px;
 }
 
+/* Smooth Scroll + Fade In Animation */
+#section2 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#section2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Heading Styling */
 .section2 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 50px;
   color: var(--blue);
-  text-align: center;
-  padding-top: 100px;
+  padding-bottom: 20px;
 }
 
+/* Random Text */
 #randomtext {
   font-family: 'Poppins', sans-serif;
   font-style: italic;
   font-size: 20px;
   color: var(--orange);
-  text-align: center;
   padding: 20px;
 }
+
+/* Image Styling */
+#girlsmile {
+  width: 200px;
+  height: auto;
+}
+
+/* Box Styling */
 .app-box {
-            background-color: #ffffff;
-            padding: 20px;
-            width: 800px;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 50px;
-        }
+  background-color: #ffffff;
+  padding: 20px;
+  width: 800px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+#writenow {
+  background-color: var(--blue);
+  height: 50px;
+  width: 400px;
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button Link */
+#writenow a {
+  text-decoration: none;
+  color: var(--white);
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* Button Hover Effect */
+#writenow:hover {
+  background-color: var(--green);
+}
 
 
 /* section 3 */
@@ -319,7 +390,7 @@ function myFunction() {
 }
 
 #mathQuestion {
-  border-radius: 50px;
+  border-radius: 15px;
 }
 
 .message-box {
@@ -390,6 +461,31 @@ function myFunction() {
   to {opacity:1 ;}
 }
 
+#submitnow {
+  background-color: var(--pink);
+  height: 50px;
+  width: 200px;
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 20px;
+  border: none; /* Remove the border */
+}
+#submitnow:hover {
+  background-color: var(--green);
+}
+
+
+#userComment {
+  border-radius: 15px;
+}
+
+#sunnymail {
+  height: auto;
+  width: 300px;
+  align-items: right;
+
+}
+
 
 /* section 4 */
 /* Split the screen in half */
@@ -418,13 +514,20 @@ function myFunction() {
 #mentalbutton {
   background-color: var(--orange);
   height: 50px;
-  width: 150px;
+  width: 200px;
   border-radius: 50px;
   color: var(--white);
   font-size: 20px;
+  border: none; /* Remove the border */
 }
+
 #mentalbutton a {
   text-decoration: none;
+  color: var(--white);
+}
+
+#mentalbutton:hover {
+  background-color: var(--green);
 }
 
 /* Control the left side */
