@@ -45,7 +45,7 @@
     </div>
     <br />
     <!-- Comment input form -->
-    <textarea id="userComment" v-model="userComment" placeholder="Right here..." rows="4" cols="50"></textarea>
+    <textarea id="userComment" v-model="userComment" placeholder="Write here..." rows="4" cols="50"></textarea>
     <br />
 
     <div class="popup"> <button id="submitnow" @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
