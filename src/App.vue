@@ -5,9 +5,14 @@
   <div id="section1" class="section1">
 
     <h1>Welcome to</h1>
+
     <div id="shynecontainer">
     <h2 id="shyneheader">Shyne</h2>
     <img id="shynelogo" src="./assets/logorefined.webp" alt="">
+    </div>
+
+    <div id="arrow-container">
+    <img id="shynedown" src="./assets/Shyne_down_down.gif" alt="">
     <a href="#section2"><img id="arrowdown" src="./assets/arrow_icon.svg" alt=""></a>
     </div>
 
@@ -57,7 +62,7 @@
 
   </div>
 
-  <img id="sunnymail" src="./assets/sunnymail.png" alt="">
+  <img id="sunnymail" src="./assets/Shyne_moving_yes.gif" alt="">
 
 
   </div>
@@ -231,6 +236,7 @@ document.addEventListener("scroll", function () {
   background-color: var(--green);
   background-size: 100%;
   height: 100vh;
+  position: relative;
 
 }
 .section1 h1 {
@@ -243,11 +249,13 @@ document.addEventListener("scroll", function () {
 
 #shynecontainer {
   display: flex;
-  align-items: center; /* Align logo and text vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 100%; /* Ensure full width */
+  width: 100%;
+  margin-top: -180px; /* Moves it closer to the top */
 }
+
 
 #shyneheader {
   font-family: 'Dillan';
@@ -261,20 +269,36 @@ document.addEventListener("scroll", function () {
   height: auto;
 }
 
-#arrowdown {
-  width: 50px;
-  height: auto;
+#arrow-container {
   position: absolute;
   bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px; /* Adjust as needed */
 }
+
+
+#shynedown {
+  width: 300px;
+  height: auto;
+  margin-bottom: -30px; /* Move the image slightly over the arrow */
+}
+
+#arrowdown {
+  width: 50px;
+  height: auto;
+}
+
 #arrowdown:hover {
-  transform: translateX(-50%) scale(1.2);
+  transform: scale(1.2);
   transition: transform 0.3s ease-in-out;
   border-radius: 50%;
   background-color: var(--orange);
 }
+
 
 
 
@@ -426,8 +450,10 @@ document.addEventListener("scroll", function () {
 
 .popup .popuptext {
   visibility: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
   width: 160px;
-  background-color: #555;
+  background-color: var(--blue);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -621,7 +647,15 @@ width: 600px;
 
 /* Media Queries for Mobile Screens */
 @media (max-width: 768px) {
-  .section1 h1, .section2 h1, .section3 h1 {
+
+  .section1 h1 {
+    font-size: 8vw;
+    padding-top: 50px;
+    margin-bottom: 180px;
+
+  }
+
+  .section2 h1, .section3 h1 {
     font-size: 6vw;
     padding-top: 50px;
   }
