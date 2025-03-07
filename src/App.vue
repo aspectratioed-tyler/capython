@@ -616,5 +616,187 @@ width: 600px;
   padding: 5px;
 }
 
+/* Media Queries for Mobile Screens */
+@media (max-width: 768px) {
+  .section1 h1, .section2 h1, .section3 h1 {
+    font-size: 6vw;
+    padding-top: 50px;
+  }
+
+  #shyneheader {
+    font-size: 12vw;
+  }
+
+  .message-box, .app-box {
+    width: 95%;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  }
+
+  .popup .popuptext {
+    width: 90%;
+  }
+
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Section 1: Responsive Adjustments */
+  .section1 {
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #shyneheader {
+    font-size: 15vw;
+  }
+
+  #shynelogo {
+    width: 100px;
+  }
+
+  /* Section 2: Responsive Grid */
+  .section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
+
+  .app-box {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  #girlsmile {
+    width: 150px;
+  }
+
+  /* Section 3: Responsive Grid */
+  .section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
+
+  .message-box {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  #mathQuestion, #userComment {
+    width: 90%;
+    max-width: 400px;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  /* Section 4: Responsive Layout */
+  .section4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .section4 .split {
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .centered {
+    position: static;
+    transform: none;
+  }
+
+  /* Sunny Walk Placement */
+  #sunnywalk {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  /* Footer: Responsive Layout */
+  .footerbottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .socialmedias {
+    margin-left: 0;
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  #copywrite-text {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+
+  /* Responsive Button Adjustments */
+  #mentalbutton, #submitnow, #writenow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+
+  #writenow a {
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+  }
+
+  #submitnow {
+    text-align: center;
+    height: 50px;
+    width: 150px;
+  }
+
+  /* Responsive Image Adjustments */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
 
 </style>
