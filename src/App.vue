@@ -23,6 +23,10 @@
 
 
     </div>
+
+    <button><a href="#section3"></a>Click to write your own message!</button>
+
+    <img src="./assets/girlsmillling.svg" alt="">
 </div>
 
 <!-- Third section-->
@@ -41,11 +45,16 @@
     <textarea v-model="userComment" placeholder="Write a comment..." rows="4" cols="50"></textarea>
     <br />
 
- <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
+    <div class="popup" onclick="myFunction()"> <button @click="submitComment" :disabled="!isHuman || !userComment.trim()">Submit</button>
+  <span class="popuptext" id="myPopup">You’ve helped a soul today</span>
 </div>
 
 
+</div>
+
   </div>
+
+  <img src="./assets/sunnymail.png" alt="">
 
 
   </div>
@@ -73,8 +82,9 @@
 
   <div class="footerbottom">
     <footer>
-      <p id="copywrite-text">© 2025 Shyne All Rights Reserved.</p>
+    <p id="copywrite-text">© 2025 Shyne All Rights Reserved.</p>
     <div class="socialmedias">
+
     <img id="tiktokimg" src="./assets/tiktok.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-3&t=wWriA2baQSqVGdP8-1">
     <img id="igimg" src="./assets/shyneinstagram.svg" alt="https://www.figma.com/design/LFdXUE7c0TK57vQjZ5Xz0d/Capython?node-id=231-4&t=wWriA2baQSqVGdP8-1">
     </div>
@@ -169,6 +179,14 @@ export default {
     this.fetchMathQuestion(); // Fetch math question from backend
   }
 };
+
+
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
 </script>
 
 <style>
@@ -313,6 +331,62 @@ export default {
             border-radius: 50px;
         }
 
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 
 /* section 4 */
 /* Split the screen in half */
@@ -387,27 +461,45 @@ width: 600px;
 
 /* Footer */
 
-.footerbottom{
+.footerbottom {
   background-color: var(--pink);
+  display: flex;
+  justify-content: center; /* Centers the copyright text */
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  position: relative; /* Helps with centering */
 }
 .socialmedias {
-  justify-content: flex-end;
-}
-
-#tiktokimg {
-  width: 25px;
-  height: 25px;
-}
-
-#igimg {
-  width: 25px;
-  height: 25px;
+  display: flex;
+  margin-left: auto; /* Pushes it to the right */
+  padding-left: 30rem; /* Adjust padding to fit within the layout */
 }
 
 #copywrite-text {
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   color: var(--white);
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding-top: 10px;
+
 }
+
+
+#tiktokimg {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+}
+
+#igimg {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+}
+
+
 </style>
